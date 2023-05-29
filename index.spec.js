@@ -7,6 +7,6 @@ describe('Index', () => {
     axios.get.mockResolvedValue({ data: { name: 'bulbasaur' } });
 
     const { data } = await axios.get('https://pokeapi.co/api/v2/pokemon/1')
-    console.log(data)
+    console.log('testeee', process.env.TEST)
   })
 });
