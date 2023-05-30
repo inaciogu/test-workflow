@@ -15,5 +15,10 @@ jobs:
           node-version: '16'
       - run: npm ci
       - run: npm run test
+      - name: Deploy to AWS
+        uses: serverless/github-action@v3.2
+        with:
+          args: -c "serverless plugin install --name serverless-dotenv-plugin && serverless plugin install serverless deploy"
+          entrypoint: /bin/sh
     env:
-      TEST: ${{ vars.TEST }}
+      TEST: ${{ secrets.TEST }}
