@@ -1,9 +1,10 @@
 import axios from "axios";
 
-const start = async () => {
-  const { data } = await axios.get('https://pokeapi.co/api/v2/pokemon/1')
-  console.log(process.env.TEST)
-  return data
+export const handler = async (event, context) => {
+  return {
+    statusCode: 200,
+    body: JSON.stringify({
+      message: "Hello world!",
+    }),
+  }
 };
-
-start()
