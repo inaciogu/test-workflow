@@ -15,6 +15,8 @@ jobs:
           node-version: '16'
       - run: npm ci
       - run: npm run test
+      - name: create .env file to store test secret
+        run: echo "TEST=$TEST" >> .env
       - name: Deploy to AWS
         uses: serverless/github-action@v3.2
         with:
